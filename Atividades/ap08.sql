@@ -1,20 +1,42 @@
----- 1.4 - Cálculo do Delta de uma equação do segundo grau
+-- 1.5 - Raiz cúbica do antecessor e sucessor
 DO
+$$ 
+DECLARE 
+    num INT;
+    raiz_antecessor NUMERIC;
+    raiz_sucessor NUMERIC;
+BEGIN
+    num := valor_aleatorio_entre(1, 100);
+    raiz_antecessor := (num - 1) ^ (1.0/3);
+    raiz_sucessor := (num + 1) ^ (1.0/3);
+   
+    RAISE NOTICE 'Número: %, Raiz cúbica do antecessor: %, Raiz cúbica do sucessor: %', 
+        num, 
+        TO_CHAR(raiz_antecessor, 'FM999999999.00'), 
+        TO_CHAR(raiz_sucessor, 'FM999999999.00');
+
+END 
 $$
-DECLARE
-    a INT := valor_aleatorio_entre(0, 20);
-    b INT := valor_aleatorio_entre(0, 20);
-    c INT := valor_aleatorio_entre(0, 20);
-    delta NUMERIC(10,2);BEGIN
-    RAISE NOTICE '%x² + %x + % = 0', a, b, c;
-    IF a = 0 THEN 
-        RAISE NOTICE 'Não é equação do segundo grau';
-    ELSE 
-        delta := b ^ 2 - 4 * a * c;
-        RAISE NOTICE 'Delta: %', delta;
-    END IF; 
-END
-$$
+
+
+
+---- 1.4 - Cálculo do Delta de uma equação do segundo grau
+--DO
+--$$
+--DECLARE
+--    a INT := valor_aleatorio_entre(0, 20);
+--    b INT := valor_aleatorio_entre(0, 20);
+--    c INT := valor_aleatorio_entre(0, 20);
+--    delta NUMERIC(10,2);BEGIN
+--    RAISE NOTICE '%x² + %x + % = 0', a, b, c;
+--   IF a = 0 THEN 
+--        RAISE NOTICE 'Não é equação do segundo grau';
+--    ELSE 
+--        delta := b ^ 2 - 4 * a * c;
+--        RAISE NOTICE 'Delta: %', delta;
+--   END IF; 
+--END
+--$$
 
 
 --DO
