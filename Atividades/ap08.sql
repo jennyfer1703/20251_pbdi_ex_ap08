@@ -1,12 +1,23 @@
-DO 
+DO
 $$ 
 DECLARE 
-    v_int INT;
+    v_real NUMERIC(10,2);
 BEGIN
-    v_int := valor_aleatorio_entre(1, 100);
-    RAISE NOTICE 'Valor inteiro gerado: %', v_int;
-END
+    v_real := RANDOM() * 9 + 1;
+    RAISE NOTICE 'Valor real gerado: %', v_real;
+END 
 $$
+
+
+--DO 
+--$$ 
+--DECLARE 
+--   v_int INT;
+--BEGIN
+ --   v_int := valor_aleatorio_entre(1, 100);
+--    RAISE NOTICE 'Valor inteiro gerado: %', v_int;
+--END
+--$$
 
 --CREATE OR REPLACE FUNCTION valor_aleatorio_entre (lim_inferior INT, lim_superior
 --INT) RETURNS INT AS
